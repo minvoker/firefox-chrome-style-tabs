@@ -1,0 +1,47 @@
+/* Chrome like tab shrinking and expanding */
+.tabbrowser-tab {min-width: 1em !important; overflow-clip-margin: 1em !important;}
+
+/* Remove Firefox View button from left of tabs */
+#TabsToolbar #firefox-view-button,
+toolbarbutton#firefox-view-button {
+  display: none !important;
+}
+
+/* Kill the first-tab divider line Firefox draws */
+.tabbrowser-tab[first-visible-tab]::before {
+  content: none !important;
+  border: 0 !important;
+}
+
+/* Keep a small left gutter with no line */
+#TabsToolbar .titlebar-spacer[type="pre-tabs"] {
+  display: block !important;
+  width: 12px !important;           
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Ensure no leftover borders/shadows on the strip */
+#tabbrowser-tabs,
+#tabbrowser-arrowscrollbox {
+  border-inline-start: none !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+#tabbrowser-arrowscrollbox { margin-inline-start: 4px !important; }
+
+/* Always show the close button on hover (even on background/small tabs) */
+.tabbrowser-tab:hover .tab-close-button {
+  display: inline-flex !important;  
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Cover the “only show on active tab” mode too */
+#tabbrowser-tabs[closebuttons="activetab"] .tabbrowser-tab:hover .tab-close-button {
+  display: inline-flex !important;     /* ensure it appears on hover */
+}
+
